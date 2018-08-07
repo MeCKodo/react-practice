@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
 import LeftItem from './LeftItem';
 
@@ -71,9 +70,9 @@ export default class LeftNav extends Component {
             <LeftItem url='3' open={isOpen} />
           </Lists>
           <Lists>
-            <LeftItem url={'4'} open={isOpen} />
-            <LeftItem url={'5'} open={isOpen} />
-            <LeftItem url={'6'} open={isOpen} />
+            <LeftItem url={'4'} open={isOpen} type={'red'} />
+            <LeftItem url={'5'} open={isOpen} type={'red'} />
+            <LeftItem url={'6'} open={isOpen} type={'red'} />
             <LeftItem url={'7'} open={isOpen} />
           </Lists>
         </LeftNavWrapper>
