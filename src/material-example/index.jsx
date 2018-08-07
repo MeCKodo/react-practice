@@ -27,9 +27,11 @@ const LeftNavWrapper = styled.div`
   overflow-x: hidden;
   transition: all .25s ease;
   border-right: 1px solid #eee;
+  padding: 25px 0;
 `;
 
 const Lists = styled.ul`
+  margin: 0 20px;
   &:hover {
     svg {
       color:#9e9e9e;

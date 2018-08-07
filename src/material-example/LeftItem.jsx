@@ -1,19 +1,31 @@
 import React from 'react';
-import ButtonBase from "@material-ui/core/ButtonBase/index";
+import Button from "@material-ui/core/ButtonBase/index";
 import {NavLink, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
-import LeftIcon from './LeftIcon';
+import Favorite from '@material-ui/icons/Favorite';
+
+import UmiBase from './UMI';
+
+const Umi = styled(UmiBase)`
+    position: absolute;
+    left: 21px;
+    bottom: 21px;
+  
+  opacity: ${props => props.open ? 0 : 1};
+  transition: opacity .2s ease;
+`;
 
 const ListItem = styled.li`
-    width: 200px;
-    display: flex;
-    align-items: center;
-    margin: 0 0 24px 0;
-    &:hover {
-      svg {
-        color: #0684BD;
-      }
-    }
+  margin: 0 0 24px;
+`;
+
+const Text = styled.p`
+  font-size: 14px;
+  color:#444;
+  transform: translate3d(${props => props.open ? 12 : -10}px, 0, 0);
+   margin: 0 40px 0 0;
+  opacity: ${props => props.open ? 1 : 0};
+  transition: all .3s ease;
 `;
 
 const ListLink = styled(NavLink)`
@@ -26,35 +38,42 @@ const ListLink = styled(NavLink)`
   }
 `;
 
-const ListButton = styled(ButtonBase)`
+const ListButton = styled(Button)`
+
   && {
     justify-content: normal;
-    margin: 0 20px;
     width: ${props => props.open ? '100%' : '32px'};
     height: 32px;
-    border-radius: 2px;
+    border-radius: ${props => props.open ? 2 : 0}px;
+    transition: all .3s ease;
+  }
+  &&:hover {
+      background: ${props => props.color};
+    }
+`;
+
+const ListIcon = styled(Favorite)`
+  && {
+    padding: 8px;
+    height: 32px;
+    width: 32px;
+    box-sizing: border-box;
   }
 `;
 
-const ListItemMsg = styled.p`
-  display:inline-block;
-  font-size: 14px;
-  color:#444;
-  padding: 0 0 0 20px;
-  transform: translate3d(${props => props.open ? 10 : -10}px, 0, 0);
-  opacity: ${props => props.open ? 1 : 0};
-  transition: all .3s ease;
-`;
 
 export default withRouter((props) => {
   const { open, url, type } = props;
-  console.log(type)
+  const bgColor = props.location.pathname.indexOf(url) > -1 ? '#cdf0ff': '#F5F5F5';
+  
   return (
     <ListItem>
-      <ListLink to={`/material/${url}`} >
-        <ListButton open={open}>
-          <LeftIcon open={open} type={type}/>
-          <ListItemMsg open={open}>message</ListItemMsg>
+      <ListLink to={`/material/${url}`}>
+        <ListButton color={bgColor} open={open}>
+          <ListIcon />
+          <Umi open={open}>22</Umi>
+          <Text open={open}>message</Text>
+          <UmiBase >22</UmiBase>
         </ListButton>
       </ListLink>
     </ListItem>
