@@ -1,21 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
+import Favorite from '@material-ui/icons/Favorite';
+import UmiBase from './UMI';
 
-const LeftIconWrapper = styled(IconButton)`
-  &&:hover {
+const Umi = styled(UmiBase)`
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  opacity: ${props => props.isOpen ? 0 : 1};
+  transition: opacity .2s ease;
+`;
+
+const LeftIcon = styled(Favorite)`
+  
+  ${props => !props.open ?`&&:hover {
     background: #99ffee;
-  }
+    border-radius: 0px;
+  }` : null}
+  
   && {
-    width: 35px;
-    height: 35px;
+    position: relative;
+    width: 25px;
+    height: 25px;
     border-radius: 0;
+    color: #bfbfbf;
+    transition: all .3s ease;
   }
 `;
 
-const LeftIcon = styled(DeleteIcon)`
-  color: red;
-`;
-
-export default () => <LeftIconWrapper><LeftIcon></LeftIcon></LeftIconWrapper>;
+export default (props) => {
+  const { isOpen } = props;
+  return (
+    <React.Fragment>
+      <LeftIcon open={isOpen} />
+      <Umi isOpen={isOpen}>22</Umi>
+    </React.Fragment>
+  )
+};

@@ -26,7 +26,7 @@ ReactDOM.render(
       
       <Switch>
         <Route path='/basic' component={BasicExample} />
-        <Route path='/material' exact component={MaterialExample} />
+        <Route path='/material'  component={MaterialExample} />
         <Route path='/' render={() =>
           <React.Fragment>
             <h2>看什么看，写点demo不行吗</h2>
