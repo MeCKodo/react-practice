@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
-import LeftIcon from './LeftIcon';
+
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import UmiBase from './UMI';
+import LeftItem from './LeftItem';
 
 const MaxWidth = 200;
 const MinWidth = 72;
@@ -18,24 +16,6 @@ const MaterialWrapper = styled.div`
 const TopBar = styled.div`
   display: flex;
   flex-basis: 70px;
-`;
-const ListLink = styled(NavLink)`
-  display:flex;
-  width: 100%;
-  &.active {
-    svg, p {
-      color: #0684BD;
-    }
-  }
-`;
-
-const ListButton = styled(ButtonBase)`
-  && {
-    justify-content: normal;
-    margin: 0 20px;
-    width: ${props => props.isOpen ? '100%' : '32px'};
-    height: 32px;
-  }
 `;
 
 const LeftNavWrapper = styled.div`
@@ -56,27 +36,6 @@ const Lists = styled.ul`
       color:#9e9e9e;
     }
   }
-`;
-const ListItem = styled.li`
-    width: 200px;
-    display: flex;
-    align-items: center;
-    margin: 0 0 16px;
-    &:hover {
-      svg {
-        color: #0684BD;
-      }
-    }
-`;
-
-const ListItemMsg = styled.p`
-  display:inline-block;
-  font-size: 14px;
-  color:#444;
-  padding: 0 0 0 20px;
-  transform: translate3d(${props => props.isOpen ? 10 : -10}px, 0, 0);
-  opacity: ${props => props.isOpen ? 1 : 0};
-  transition: all .3s ease;
 `;
 
 export default class LeftNav extends Component {
@@ -107,48 +66,15 @@ export default class LeftNav extends Component {
         </TopBar>
         <LeftNavWrapper isOpen={isOpen} test={test}>
           <Lists>
-            <ListItem>
-              <ListLink to='/material/1'>
-                <ListButton isOpen={isOpen}>
-                  <LeftIcon isOpen={isOpen}/>
-                  <ListItemMsg isOpen={isOpen}>message</ListItemMsg>
-                </ListButton>
-              </ListLink>
-            </ListItem>
-            <ListItem>
-              <ListLink to='/material/2'>
-                <ListButton isOpen={isOpen}>
-                  <LeftIcon isOpen={isOpen}/>
-                  <ListItemMsg isOpen={isOpen}>message</ListItemMsg>
-                </ListButton>
-              </ListLink>
-            </ListItem>
-            <ListItem>
-              <ListLink to='/material/3'>
-                <ListButton isOpen={isOpen}>
-                  <LeftIcon isOpen={isOpen}/>
-                  <ListItemMsg isOpen={isOpen}>message</ListItemMsg>
-                </ListButton>
-              </ListLink>
-            </ListItem>
+            <LeftItem url='1' open={isOpen} />
+            <LeftItem url='2' open={isOpen} />
+            <LeftItem url='3' open={isOpen} />
           </Lists>
           <Lists>
-            <ListItem>
-              <ListLink to='/material/3'>
-                <ListButton isOpen={isOpen}>
-                  <LeftIcon isOpen={isOpen}/>
-                  <ListItemMsg isOpen={isOpen}>message</ListItemMsg>
-                </ListButton>
-              </ListLink>
-            </ListItem>
-            <ListItem>
-              <ListLink to='/material/4'>
-                <ListButton isOpen={isOpen}>
-                  <LeftIcon isOpen={isOpen}/>
-                  <ListItemMsg isOpen={isOpen}>message</ListItemMsg>
-                </ListButton>
-              </ListLink>
-            </ListItem>
+            <LeftItem url={'4'} open={isOpen} />
+            <LeftItem url={'5'} open={isOpen} />
+            <LeftItem url={'6'} open={isOpen} />
+            <LeftItem url={'7'} open={isOpen} />
           </Lists>
         </LeftNavWrapper>
       </MaterialWrapper>
