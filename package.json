@@ -6,9 +6,12 @@
     "react-scripts": "1.1.4"
   },
   "dependencies": {
+    "@material-ui/core": "^1.4.3",
+    "@material-ui/icons": "^2.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "styled-components": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
