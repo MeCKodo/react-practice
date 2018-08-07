@@ -54,7 +54,6 @@ export default class LeftNav extends Component {
       isOpen : !isOpen,
       test : !test,
     });
-    console.log(this.state.isOpen);
   };
   
   render() {

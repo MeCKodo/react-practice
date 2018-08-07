@@ -7,10 +7,9 @@ import Favorite from '@material-ui/icons/Favorite';
 import UmiBase from './UMI';
 
 const Umi = styled(UmiBase)`
-    position: absolute;
-    left: 21px;
-    bottom: 21px;
-  
+  position: absolute;
+  left: 21px;
+  bottom: 21px;
   opacity: ${props => props.open ? 0 : 1};
   transition: opacity .2s ease;
 `;
@@ -25,7 +24,7 @@ const Text = styled.p`
   transform: translate3d(${props => props.open ? 12 : -10}px, 0, 0);
    margin: 0 40px 0 0;
   opacity: ${props => props.open ? 1 : 0};
-  transition: all .3s ease;
+  transition: transform .3s ease, opacity .3s ease;
 `;
 
 const ListLink = styled(NavLink)`
@@ -39,17 +38,16 @@ const ListLink = styled(NavLink)`
 `;
 
 const ListButton = styled(Button)`
-
   && {
     justify-content: normal;
     width: ${props => props.open ? '100%' : '32px'};
     height: 32px;
     border-radius: ${props => props.open ? 2 : 0}px;
-    transition: all .3s ease;
+    transition: width .3s ease, background .3s ease;
   }
   &&:hover {
-      background: ${props => props.color};
-    }
+    background: ${props => props.color};
+  }
 `;
 
 const ListIcon = styled(Favorite)`
@@ -60,7 +58,6 @@ const ListIcon = styled(Favorite)`
     box-sizing: border-box;
   }
 `;
-
 
 export default withRouter((props) => {
   const { open, url, type } = props;
