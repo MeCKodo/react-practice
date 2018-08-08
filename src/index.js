@@ -10,7 +10,6 @@ import styled from 'styled-components';
 import './index.css';
 import BasicExample from './basic-example/index';
 import MaterialExample from './material-example';
-import Icon from './material-example/LeftIcon';
 
 const Container = styled.div`
   display: flex;
@@ -30,7 +29,6 @@ ReactDOM.render(
         <Route path='/material'  component={MaterialExample} />
         <Route path='/' render={() =>
           <React.Fragment>
-            <Icon />
             <h2>看什么看，写点demo不行吗</h2>
             <BasicLink />
             <MaterialLink />

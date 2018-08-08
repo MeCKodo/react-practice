@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Umi = styled.div`
+const UmiBase = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,4 +22,4 @@ const RedDot = styled.div`
   pointer-events: none;
 `;
 
-export { Umi, RedDot };
+export { UmiBase, RedDot };

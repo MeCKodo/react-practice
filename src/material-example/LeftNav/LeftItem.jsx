@@ -1,10 +1,9 @@
 import React from 'react';
-import Button from "@material-ui/core/ButtonBase/index";
 import {NavLink, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import MuiListItem from '@material-ui/core/ListItem';
 import MuiListItemText from '@material-ui/core/ListItemText';
-import {Umi as UmiBase} from './UMI';
+import {UmiBase} from './UMI';
 
 const Umi = styled(UmiBase)`
   position: absolute;
@@ -64,24 +63,6 @@ const ListLink = styled(NavLink)`
     svg, span {
       color: #0684BD !important;
     }
-  }
-`;
-
-const ListButton = styled(Button)`
-  && {
-    justify-content: normal;
-    width: 100%;
-    height: 48px;
-    padding: 0 0 0 20px;
-    border-radius: ${props => props.open ? 2 : 0}px;
-    transition: width .3s ease, background .3s ease;
-  }
-  
-  &&:hover {
-     background: ${props => props.color};
-     svg {
-        color:#9e9e9e;
-     }
   }
 `;
 
