@@ -1,41 +1,35 @@
 import React from 'react';
-import styled from 'styled-components';
-import Favorite from '@material-ui/icons/Favorite';
-import UmiBase from './UMI';
+import Message from '@material-ui/icons/Message';
+import Phone from '@material-ui/icons/Phone';
+import Videocam from '@material-ui/icons/Videocam';
+import Dashboard from '@material-ui/icons/Dashboard';
+import DateRange from '@material-ui/icons/DateRange';
+import AssignmentTurnedIn from '@material-ui/icons/AssignmentTurnedIn';
+import FileCopy from '@material-ui/icons/FileCopy';
+import AddBox from '@material-ui/icons/AddBox';
+import LibraryBooks from '@material-ui/icons/LibraryBooks';
+import Link from '@material-ui/icons/Link';
 
-const Umi = styled(UmiBase)`
-  position: absolute;
-      bottom: 17px;
-    left: 19px;
-  opacity: ${props => props.open ? 0 : 1};
-  transition: opacity .2s ease;
-`;
-
-const LeftIcon = styled(Favorite)`
-  ${props => !props.open ?`&&:hover {
-    background: #${props.active ? 'D7EBF4' : 'f5f5f5'};
-    border-radius: 0px;
-  }` : null}
-  
-  && {
-    position: relative;
-    width: 32px;
-    height: 32px;
-    padding: 8px;
-    border-radius: 0;
-    color: #bfbfbf;
-    transition: all .3s ease;
-    box-sizing: border-box;
-  }
-`;
+// assignment_turned_in
+const IconGroup = {
+  Message: (props) => <Message {...props} />,
+  Phone: (props) => <Phone {...props} />,
+  Videocam: (props) => <Videocam {...props} />,
+  Dashboard: (props) => <Dashboard {...props} />,
+  DateRange: (props) => <DateRange {...props} />,
+  AssignmentTurnedIn: (props) => <AssignmentTurnedIn {...props} />,
+  FileCopy: (props) => <FileCopy {...props} />,
+  Link: (props) => <Link {...props} />,
+  LibraryBooks: (props) => <LibraryBooks {...props} />,
+  AddBox: (props) => <AddBox {...props} />,
+};
 
 export default (props) => {
-  const { open, active, type } = props;
-  console.log(active, '-------')
+  const { icon } = props;
+  const Icon = IconGroup[icon];
   return (
     <React.Fragment>
-      <LeftIcon active={active} open={open} />
-      <Umi open={open} type={type}>22</Umi>
+      <Icon {...props} />
     </React.Fragment>
   )
 };

@@ -8,6 +8,14 @@ const Umi = styled.div`
   color:#fff;
   border:1px solid #fff;
   box-sizing: border-box;
+  //pointer-events: none;
 `;
 
-export default Umi;
+const RedDot = styled.div`
+  width: 8px;
+  height: 8px;
+  color:red;
+  pointer-events: none;
+`;
+
+export { Umi, RedDot };

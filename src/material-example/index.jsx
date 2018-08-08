@@ -25,20 +25,66 @@ const LeftNavWrapper = styled.div`
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: all .25s ease;
+  transition: all .2s ease;
   border-right: 1px solid #eee;
-  padding: 25px 0;
+  padding: 24px 0;
 `;
 
 const Lists = styled.ul`
-  margin: 0 20px;
   &:hover {
     svg {
-      color:#9e9e9e;
+      color: #9e9e9e;
+    }
+    p {
+      color: #212121;
     }
   }
 `;
-
+const ListsArr = [[
+  {
+    url : '1',
+    title : 'Messages',
+    icon: 'Message',
+  }, {
+    url : '2',
+    title : 'Calls',
+    icon: 'Phone',
+  }, {
+    url : '3',
+    title : 'Meetings',
+    icon: 'Videocam',
+  },
+], [
+  {
+    url : '4',
+    title : 'Dashboard',
+    icon: 'Dashboard',
+  }, {
+    url : '5',
+    title : 'Calendar',
+    icon: 'DateRange',
+  }, {
+    url : '6',
+    title : 'Tasks',
+    icon: 'AssignmentTurnedIn',
+  }, {
+    url : '7',
+    title : 'Files',
+    icon: 'FileCopy',
+  }, {
+    url : '8',
+    title : 'Links',
+    icon: 'Link',
+  }, {
+    url : '9',
+    title : 'Notes',
+    icon: 'LibraryBooks',
+  }, {
+    url : '10',
+    title : 'Integration',
+    icon: 'AddBox',
+  },
+] ];
 export default class LeftNav extends Component {
   constructor(props) {
     super(props);
@@ -57,25 +103,30 @@ export default class LeftNav extends Component {
   };
   
   render() {
-    const { isOpen, test } = this.state;
+    const { isOpen } = this.state;
     
     return (
       <MaterialWrapper>
         <TopBar>
           <FormatListBulleted onClick={this.switchNavStatus}/>
         </TopBar>
-        <LeftNavWrapper isOpen={isOpen} test={test}>
-          <Lists>
-            <LeftItem url='1' open={isOpen} />
-            <LeftItem url='2' open={isOpen} />
-            <LeftItem url='3' open={isOpen} />
-          </Lists>
-          <Lists>
-            <LeftItem url={'4'} open={isOpen} type={'red'} />
-            <LeftItem url={'5'} open={isOpen} type={'red'} />
-            <LeftItem url={'6'} open={isOpen} type={'red'} />
-            <LeftItem url={'7'} open={isOpen} />
-          </Lists>
+        <LeftNavWrapper isOpen={isOpen}>
+          {
+            ListsArr.map((arr, index) => {
+              console.log(arr);
+              return (<Lists key={index}>
+                {
+                  arr.map(item =>
+                    <LeftItem
+                      key={item.url}
+                    url={item.url}
+                    open={isOpen}
+                    title={item.title}
+                    icon={item.icon}/>)
+                }
+              </Lists>)
+            })
+          }
         </LeftNavWrapper>
       </MaterialWrapper>
     )
