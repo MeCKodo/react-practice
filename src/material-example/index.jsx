@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
 import LeftItem from './LeftItem';
+import ListsArr from './LeftIcon';
 
 const MaxWidth = 200;
 const MinWidth = 72;
@@ -40,51 +41,7 @@ const Lists = styled.ul`
     }
   }
 `;
-const ListsArr = [[
-  {
-    url : '1',
-    title : 'Messages',
-    icon: 'Message',
-  }, {
-    url : '2',
-    title : 'Calls',
-    icon: 'Phone',
-  }, {
-    url : '3',
-    title : 'Meetings',
-    icon: 'Videocam',
-  },
-], [
-  {
-    url : '4',
-    title : 'Dashboard',
-    icon: 'Dashboard',
-  }, {
-    url : '5',
-    title : 'Calendar',
-    icon: 'DateRange',
-  }, {
-    url : '6',
-    title : 'Tasks',
-    icon: 'AssignmentTurnedIn',
-  }, {
-    url : '7',
-    title : 'Files',
-    icon: 'FileCopy',
-  }, {
-    url : '8',
-    title : 'Links',
-    icon: 'Link',
-  }, {
-    url : '9',
-    title : 'Notes',
-    icon: 'LibraryBooks',
-  }, {
-    url : '10',
-    title : 'Integration',
-    icon: 'AddBox',
-  },
-] ];
+
 export default class LeftNav extends Component {
   constructor(props) {
     super(props);
@@ -113,16 +70,16 @@ export default class LeftNav extends Component {
         <LeftNavWrapper isOpen={isOpen}>
           {
             ListsArr.map((arr, index) => {
-              console.log(arr);
               return (<Lists key={index}>
                 {
                   arr.map(item =>
                     <LeftItem
                       key={item.url}
-                    url={item.url}
-                    open={isOpen}
-                    title={item.title}
-                    icon={item.icon}/>)
+                      url={item.url}
+                      open={isOpen}
+                      title={item.title}
+                      icon={item.icon}>
+                    </LeftItem>)
                 }
               </Lists>)
             })

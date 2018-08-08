@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Message from '@material-ui/icons/Message';
 import Phone from '@material-ui/icons/Phone';
 import Videocam from '@material-ui/icons/Videocam';
@@ -10,26 +11,58 @@ import AddBox from '@material-ui/icons/AddBox';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import Link from '@material-ui/icons/Link';
 
-// assignment_turned_in
-const IconGroup = {
-  Message: (props) => <Message {...props} />,
-  Phone: (props) => <Phone {...props} />,
-  Videocam: (props) => <Videocam {...props} />,
-  Dashboard: (props) => <Dashboard {...props} />,
-  DateRange: (props) => <DateRange {...props} />,
-  AssignmentTurnedIn: (props) => <AssignmentTurnedIn {...props} />,
-  FileCopy: (props) => <FileCopy {...props} />,
-  Link: (props) => <Link {...props} />,
-  LibraryBooks: (props) => <LibraryBooks {...props} />,
-  AddBox: (props) => <AddBox {...props} />,
-};
+const Icon = styled(
+  ({ component, ...props }) => React.cloneElement(component, props)
+)`
+  color: #bfbfbf;
+`;
 
-export default (props) => {
-  const { icon } = props;
-  const Icon = IconGroup[icon];
-  return (
-    <React.Fragment>
-      <Icon {...props} />
-    </React.Fragment>
-  )
-};
+const ListsArr = [
+  [
+    {
+      url : '1',
+      title : 'Messages',
+      icon : (props) => <Icon component={<Message/>} {...props} />,
+    }, {
+      url : '2',
+      title : 'Calls',
+      icon : (props) => <Icon component={<Phone/>} {...props} />,
+    }, {
+      url : '3',
+      title : 'Meetings',
+      icon : (props) => <Icon component={<Videocam/>} {...props} />,
+    },
+  ], [
+    {
+      url : '4',
+      title : 'Dashboard',
+      icon : (props) => <Icon component={<Dashboard/>} {...props} />,
+    }, {
+      url : '5',
+      title : 'Calendar',
+      icon : (props) => <Icon component={<DateRange/>} {...props} />,
+    }, {
+      url : '6',
+      title : 'Tasks',
+      icon : (props) => <Icon component={<AssignmentTurnedIn/>} {...props} />,
+    }, {
+      url : '7',
+      title : 'Files',
+      icon : (props) => <Icon component={<FileCopy/>} {...props} />,
+    }, {
+      url : '8',
+      title : 'Links',
+      icon : (props) => <Icon component={<Link/>} {...props} />,
+    }, {
+      url : '9',
+      title : 'Notes',
+      icon : (props) => <Icon component={<LibraryBooks/>} {...props} />,
+    }, {
+      url : '10',
+      title : 'Integration',
+      icon : (props) => <Icon component={<AddBox/>} {...props} />,
+    },
+  ]
+];
+
+export default ListsArr;
