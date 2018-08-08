@@ -37,7 +37,7 @@ const ListItemText = styled(MuiListItemText)`
     color: #9e9e9e;
     transform: translate3d(${props => props.open ? 12 : -10}px, 0, 0);
     opacity: ${props => props.open ? 1 : 0};
-    transition: transform .3s ease, opacity .3s ease;
+    transition: transform .2s ease, opacity .2s ease;
     padding: 0;
     span {
       color: #bfbfbf;

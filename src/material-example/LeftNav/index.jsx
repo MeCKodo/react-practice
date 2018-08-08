@@ -40,8 +40,8 @@ const Drawer = styled(MuiDrawer)`
   }
 `;
 
-export default () => {
-  const { isOpen } = this.props;
+export default (props) => {
+  const { isOpen } = props;
   
   return (
     <Drawer variant="permanent" open={isOpen} >
