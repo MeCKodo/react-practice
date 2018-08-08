@@ -7,18 +7,20 @@ import {UmiBase} from './UMI';
 
 const Umi = styled(UmiBase)`
   position: absolute;
-  left: 41px;
-  bottom: 28px;
+  left: 40px;
+  bottom: 25px;
   opacity: ${props => props.open ? 0 : 1};
   transition: opacity .2s ease;
 `;
 
 const ListItem = styled(MuiListItem)`
   && {
-    padding: 0 20px;
+    padding: 0;
     height: 48px;
   }
   &&:hover {
+     // In order to make sure if active state it will be active's color
+     // or hover's color
      background: ${props => props.color};
      svg {
         color: #9e9e9e;
@@ -49,25 +51,28 @@ const ListItemText = styled(MuiListItemText)`
 const ListLink = styled(NavLink)`
   display:flex;
   width: 100%;
+  height: 100%;
+  padding: 0 20px;
   outline: none;
   align-items:center;
   &:focus {
     svg, span {
       color: #9E9E9E;
     }
-    button {
-      background: #F5F5F5;
-    }
   }
-  &.active {
+  
+  &&.active {
     svg, span {
-      color: #0684BD !important;
+      color: #0684BD;
     }
   }
+  
 `;
 
 export default withRouter((props) => {
   const { open, url, type, icon : Icon, title } = props;
+  // In order to make sure if active state it will be active's color
+  // or hover's color
   const bgColor = props.location.pathname.indexOf(url) > -1 ? '#EBF6FA' : '#F5F5F5';
   
   return (

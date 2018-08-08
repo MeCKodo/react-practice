@@ -10,12 +10,18 @@ const MaxWidth = 200;
 const MinWidth = 72;
 
 const List = styled(MuiList)`
+  // this group btns will awake
   &:hover {
     svg {
       color: #9e9e9e;
     }
     span {
       color: #212121;
+    }
+  }
+  &:nth-last-child(1) {
+    & > div {
+      height: 40px;
     }
   }
 `;
