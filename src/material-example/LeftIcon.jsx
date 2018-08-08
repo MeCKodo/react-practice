@@ -14,7 +14,10 @@ import Link from '@material-ui/icons/Link';
 const Icon = styled(
   ({ component, ...props }) => React.cloneElement(component, props)
 )`
-  color: #bfbfbf;
+  && {
+    transition: all .2s ease;
+    color: #bfbfbf;
+  }
 `;
 
 const ListsArr = [

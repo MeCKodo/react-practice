@@ -4,7 +4,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
-
+import MuiListItemText from '@material-ui/core/ListItemText';
 import {Umi as UmiBase} from './UMI';
 
 const Umi = styled(UmiBase)`
@@ -23,7 +23,7 @@ const ListItem1 = styled(ListItem)`
   &&:hover {
      background: ${props => props.color};
      svg {
-        color:#9e9e9e;
+        color: #9e9e9e;
      }
   }
 `;
@@ -33,14 +33,18 @@ const UmiRight = styled(UmiBase)`
   transition: opacity .2s ease;
 `;
 
-const Title = styled(Typography)`
+const ListItemText = styled(MuiListItemText)`
   && {
-    font-size: 14px;
+    font-size: 12px;
     color: #9e9e9e;
     transform: translate3d(${props => props.open ? 12 : -10}px, 0, 0);
-     margin: 0 40px 0 0;
     opacity: ${props => props.open ? 1 : 0};
     transition: transform .3s ease, opacity .3s ease;
+    padding: 0;
+    span {
+      color: #bfbfbf;
+      transition: color .2s ease;
+    }
   }
 `;
 
@@ -50,7 +54,7 @@ const ListLink = styled(NavLink)`
   outline: none;
   align-items:center;
   &:focus {
-    svg, p {
+    svg, span {
       color: #9E9E9E;
     }
     button {
@@ -58,7 +62,7 @@ const ListLink = styled(NavLink)`
     }
   }
   &.active {
-    svg, p {
+    svg, span {
       color: #0684BD !important;
     }
   }
@@ -93,7 +97,7 @@ export default withRouter((props) => {
       <ListLink to={`/material/${url}`}>
         <Icon />
         <Umi open={open}>22</Umi>
-        <Title open={open}>{title}</Title>
+        <ListItemText primary={`${title}`} open={open} />
         <UmiRight open={open}>22</UmiRight>
       </ListLink>
     </ListItem1>
