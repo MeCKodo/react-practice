@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
-import List from '@material-ui/core/List';
+import MuiDrawer from '@material-ui/core/Drawer';
+import MuiList from '@material-ui/core/List';
 import LeftItem from './LeftItem';
 import ListsArr from './LeftIcon';
 
@@ -32,7 +33,7 @@ const LeftNavWrapper = styled.div`
   padding: 24px 0;
 `;
 
-const Lists = styled(List)`
+const Lists = styled(MuiList)`
   &:hover {
     svg {
       color: #9e9e9e;
@@ -42,7 +43,23 @@ const Lists = styled(List)`
     }
   }
 `;
-
+const Drawer = styled(MuiDrawer)`
+    && {
+      flex: auto;
+      display:flex;
+      width: ${props => props.open ? MaxWidth : MinWidth}px;
+      height: 100%;
+    }
+    
+    & > div {
+      position: relative;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: ${props => props.open ? MaxWidth : MinWidth}px;
+      justify-content: space-between;
+    }
+`;
 export default class LeftNav extends Component {
   constructor(props) {
     super(props);
@@ -68,7 +85,7 @@ export default class LeftNav extends Component {
         <TopBar>
           <FormatListBulleted onClick={this.switchNavStatus}/>
         </TopBar>
-        <LeftNavWrapper isOpen={isOpen}>
+        <Drawer variant="permanent" open={isOpen}>
           {
             ListsArr.map((arr, index) => {
               return (<Lists component="nav"
@@ -87,7 +104,7 @@ export default class LeftNav extends Component {
               </Lists>)
             })
           }
-        </LeftNavWrapper>
+        </Drawer>
       </MaterialWrapper>
     )
   }
