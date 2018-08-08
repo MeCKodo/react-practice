@@ -2,8 +2,7 @@ import React from 'react';
 import Button from "@material-ui/core/ButtonBase/index";
 import {NavLink, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
+import MuiListItem from '@material-ui/core/ListItem';
 import MuiListItemText from '@material-ui/core/ListItemText';
 import {Umi as UmiBase} from './UMI';
 
@@ -15,7 +14,7 @@ const Umi = styled(UmiBase)`
   transition: opacity .2s ease;
 `;
 
-const ListItem1 = styled(ListItem)`
+const ListItem = styled(MuiListItem)`
   && {
     padding: 0 20px;
     height: 48px;
@@ -91,15 +90,17 @@ export default withRouter((props) => {
   const bgColor = props.location.pathname.indexOf(url) > -1 ? '#EBF6FA' : '#F5F5F5';
   
   return (
-    <ListItem1 button={true}
-               color={bgColor}
-               open={open}>
+    <ListItem tabIndex='-1'
+              button={true}
+              disableGutters={true}
+              color={bgColor}
+              open={open}>
       <ListLink to={`/material/${url}`}>
         <Icon />
         <Umi open={open}>22</Umi>
         <ListItemText primary={`${title}`} open={open} />
         <UmiRight open={open}>22</UmiRight>
       </ListLink>
-    </ListItem1>
+    </ListItem>
   )
 });

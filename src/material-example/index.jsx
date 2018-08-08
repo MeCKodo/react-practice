@@ -46,6 +46,8 @@ const Drawer = styled(MuiDrawer)`
       overflow-x: hidden;
       width: ${props => props.open ? MaxWidth : MinWidth}px;
       justify-content: space-between;
+            padding: 24px 0;
+      box-sizing: border-box;
     }
 `;
 
