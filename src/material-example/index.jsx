@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
+import List from '@material-ui/core/List';
 import LeftItem from './LeftItem';
 import ListsArr from './LeftIcon';
 
@@ -31,7 +32,7 @@ const LeftNavWrapper = styled.div`
   padding: 24px 0;
 `;
 
-const Lists = styled.ul`
+const Lists = styled(List)`
   &:hover {
     svg {
       color: #9e9e9e;
@@ -70,7 +71,9 @@ export default class LeftNav extends Component {
         <LeftNavWrapper isOpen={isOpen}>
           {
             ListsArr.map((arr, index) => {
-              return (<Lists key={index}>
+              return (<Lists component="nav"
+                             disablePadding={true}
+                             key={index}>
                 {
                   arr.map(item =>
                     <LeftItem

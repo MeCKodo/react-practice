@@ -2,6 +2,7 @@ import React from 'react';
 import Button from "@material-ui/core/ButtonBase/index";
 import {NavLink, withRouter} from 'react-router-dom';
 import styled from 'styled-components';
+import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 
 import {Umi as UmiBase} from './UMI';
@@ -14,13 +15,18 @@ const Umi = styled(UmiBase)`
   transition: opacity .2s ease;
 `;
 
+const ListItem1 = styled(ListItem)`
+  &&:hover {
+     background: ${props => props.color};
+     svg {
+        color:#9e9e9e;
+     }
+  }
+`;
+
 const UmiRight = styled(UmiBase)`
   opacity: ${props => props.open ? 1 : 0};
   transition: opacity .2s ease;
-`;
-
-const ListItem = styled.li`
-
 `;
 
 const Title = styled(Typography)`
@@ -51,9 +57,6 @@ const ListLink = styled(NavLink)`
     svg, p {
       color: #0684BD !important;
     }
-    &:focus {
-      background: red;
-    }
   }
 `;
 
@@ -80,15 +83,17 @@ export default withRouter((props) => {
   const bgColor = props.location.pathname.indexOf(url) > -1 ? '#EBF6FA' : '#F5F5F5';
   
   return (
-    <ListItem>
+    <ListItem1 button={true}
+               color={bgColor}
+               open={open}>
       <ListLink to={`/material/${url}`}>
-        <ListButton color={bgColor} open={open}>
+        {/*<ListButton color={bgColor} open={open}>*/}
           <Icon />
           <Umi open={open}>22</Umi>
           <Title open={open}>{title}</Title>
           <UmiRight open={open}>22</UmiRight>
-        </ListButton>
+        {/*</ListButton>*/}
       </ListLink>
-    </ListItem>
+    </ListItem1>
   )
 });
