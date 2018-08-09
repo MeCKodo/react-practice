@@ -12,7 +12,7 @@ const MinWidth = 72;
 const List = styled(MuiList).attrs({className:'left-list'})`
   &:first-child {
     .left-list-item {
-      svg {
+      .left-icon {
         margin: 0 0 0 3px;
       }
     }
@@ -20,7 +20,7 @@ const List = styled(MuiList).attrs({className:'left-list'})`
   &:nth-last-child(1) {
     .left-list-item {
       height: 40px;
-      svg {
+      .left-icon {
         font-size: 18px;
         margin: 0 0 0 6px;
       }
@@ -50,7 +50,7 @@ const Drawer = styled(MuiDrawer)`
     transition: all .25s ease;
     // this group btns will awake
     &:hover {
-      svg {
+      .left-icon {
         color: #9e9e9e; // 500
       }
       span {
@@ -75,12 +75,8 @@ export default (props) => {
                 arr.map(item =>
                   <LeftItem
                     key={item.url}
-                    url={item.url}
-                    open={isOpen}
-                    type={item.type}
-                    num={item.num}
-                    title={item.title}
-                    icon={item.icon}>
+                    {...item}
+                    open={isOpen}>
                   </LeftItem>)
               }
             </List>
