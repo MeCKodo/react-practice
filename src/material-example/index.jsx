@@ -35,30 +35,35 @@ const Lists = styled.ul`
   }
 `;
 
+const Btn = styled(FormatListBulleted)`
+  &:active {
+    color: red;
+  }
+`;
+
 export default class MaterialDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
-      test: false
+      isOpen : false,
     };
   }
-
+  
   switchNavStatus = () => {
     const { isOpen } = this.state;
     this.setState({
-      isOpen: !isOpen
+      isOpen : !isOpen,
     });
   };
-
+  
   render() {
     const { isOpen } = this.state;
-
+    
     return (
       <MaterialWrapper>
         <TopBar handleMenuClick={this.switchNavStatus} isOpen={isOpen} />
         <LeftNav isOpen={isOpen} />
       </MaterialWrapper>
-    );
+    )
   }
 }

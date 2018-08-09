@@ -25,14 +25,20 @@ const ListsArr = [
     {
       url : '1',
       title : 'Messages',
+      type: 'umi',
+      num: '99+',
       icon : (props) => <Icon component={<Message/>} {...props} />,
     }, {
       url : '2',
       title : 'Calls',
+      type: 'umi',
+      num: '99',
       icon : (props) => <Icon component={<Phone/>} {...props} />,
     }, {
       url : '3',
       title : 'Meetings',
+    type: 'umi',
+    num: '9',
       icon : (props) => <Icon component={<Videocam/>} {...props} />,
     },
   ], [
@@ -43,13 +49,17 @@ const ListsArr = [
     }, {
       url : '5',
       title : 'Calendar',
+      type: 'red',
       icon : (props) => <Icon component={<DateRange/>} {...props} />,
     }, {
       url : '6',
       title : 'Tasks',
+      type: 'red',
       icon : (props) => <Icon component={<AssignmentTurnedIn/>} {...props} />,
     }, {
       url : '7',
+      type: 'umi',
+      num: '99',
       title : 'Files',
       icon : (props) => <Icon component={<FileCopy/>} {...props} />,
     }, {
