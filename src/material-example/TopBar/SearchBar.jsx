@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Select from "react-select";
+import ReactSelect from "react-select";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
@@ -53,6 +53,7 @@ const suggestions = [
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    flexBasis: 640,
     marginLeft: 20,
     marginRight: 20
   },
@@ -125,6 +126,7 @@ function inputComponent({ inputRef, ...props }) {
 function Control(props) {
   return (
     <SearchInput
+      className={'123'}
       InputProps={{
         disableUnderline: true,
         classes: {
@@ -197,7 +199,9 @@ function MultiValue(props) {
     />
   );
 }
-
+const Select = styled(ReactSelect)`
+  width: 100%;
+`;
 const components = {
   Option,
   Control,

@@ -20,6 +20,7 @@ const TopBar = styled(AppBar).attrs({ position: "static" })`
 `;
 const Wrapper = styled(Toolbar)`
   && {
+    justify-content: space-between;
     padding: 0 20px;
   }
   &:hover {
@@ -36,16 +37,41 @@ const TopText = styled(Typography)`
   }
 `;
 
+const Div1 = styled.div`
+  display: flex;
+      flex-shrink: 0;
+    flex-basis: 250px;
+`;
+
+const Div2 = styled.div`
+  display: flex;
+flex-grow: 1;
+    flex-basis: 700px;
+`;
+
+const Div3 = styled.div`
+  display: flex;
+flex-grow: 1;
+    flex-basis: 200px;
+    justify-content: flex-end;
+`;
+
 export default props => {
   return (
     <TopBar>
       <Wrapper>
-        <IconMenu onClick={props.handleMenuClick} open={props.isOpen} />
-        <TopText variant="headline">Ringcentral</TopText>
-        <ForwardBack />
-        <SearchBar />
-        <More />
-        <AvatarPresence />
+        <Div1>
+          <IconMenu onClick={props.handleMenuClick} open={props.isOpen} />
+          <TopText variant="headline">Ringcentral</TopText>
+        </Div1>
+        <Div2>
+          <ForwardBack />
+          <SearchBar />
+        </Div2>
+        <Div3>
+          <More />
+          <AvatarPresence />
+        </Div3>
       </Wrapper>
     </TopBar>
   );
