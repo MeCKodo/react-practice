@@ -54,7 +54,7 @@ const Div2 = styled.div`
 const Div3 = styled.div`
   display: flex;
   align-items: center;
-  flex-grow: 1;
+  flex-shrink: 0;
   flex-basis: 200px;
   justify-content: flex-end;
 `;
