@@ -39,21 +39,24 @@ const TopText = styled(Typography)`
 
 const Div1 = styled.div`
   display: flex;
-      flex-shrink: 0;
-    flex-basis: 250px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-basis: 250px;
 `;
 
 const Div2 = styled.div`
   display: flex;
-flex-grow: 1;
-    flex-basis: 700px;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 700px;
 `;
 
 const Div3 = styled.div`
   display: flex;
-flex-grow: 1;
-    flex-basis: 200px;
-    justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 200px;
+  justify-content: flex-end;
 `;
 
 export default props => {
