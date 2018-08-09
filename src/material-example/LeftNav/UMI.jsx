@@ -4,22 +4,20 @@ const UmiBase = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 22px;
-  height: 15px;
-  border-radius: 8px;
+  padding: 1px 5px;
+  border-radius: 12px;
   background: #FF8800;
   font-size: 12px;
   color:#fff;
   border:1px solid #fff;
   box-sizing: border-box;
-  //pointer-events: none;
 `;
 
-const RedDot = styled.div`
+const RedDotBase = styled.div`
   width: 8px;
   height: 8px;
-  color:red;
-  pointer-events: none;
+  background: #FF8800;
+  border-radius: 50%;
 `;
 
-export { UmiBase, RedDot };
+export { UmiBase, RedDotBase };

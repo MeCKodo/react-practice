@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import './index.css';
 import BasicExample from './basic-example/index';
 import MaterialExample from './material-example';
-
+document.addEventListener("touchstart", function () {})
 const Container = styled.div`
   display: flex;
   flex-direction: column;

@@ -14,6 +14,12 @@ const TopBar = styled.div`
   flex-basis: 70px;
 `;
 
+const Btn = styled(FormatListBulleted)`
+  &:active {
+    color: red;
+  }
+`;
+
 export default class MaterialDemo extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +41,7 @@ export default class MaterialDemo extends Component {
     return (
       <MaterialWrapper>
         <TopBar>
-          <FormatListBulleted onClick={this.switchNavStatus}/>
+          <Btn onClick={this.switchNavStatus}/>
         </TopBar>
         <LeftNav isOpen={isOpen} />
       </MaterialWrapper>

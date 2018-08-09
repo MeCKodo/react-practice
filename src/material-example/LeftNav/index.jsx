@@ -9,24 +9,27 @@ import ListsArr from './LeftIcon';
 const MaxWidth = 200;
 const MinWidth = 72;
 
-const List = styled(MuiList)`
-  // this group btns will awake
-  &:hover {
-    svg {
-      color: #9e9e9e;
-    }
-    span {
-      color: #212121;
+const List = styled(MuiList).attrs({className:'left-list'})`
+  &:first-child {
+    .left-list-item {
+      svg {
+        margin: 0 0 0 3px;
+      }
     }
   }
   &:nth-last-child(1) {
-    & > div {
+    .left-list-item {
       height: 40px;
+      svg {
+        font-size: 18px;
+        margin: 0 0 0 6px;
+      }
     }
   }
 `;
 
 const Drawer = styled(MuiDrawer)`
+  
   && {
     flex: auto;
     display:flex;
@@ -35,7 +38,7 @@ const Drawer = styled(MuiDrawer)`
     transition: all .25s ease;
   }
   
-  & > div {
+  .left-paper {
     position: relative;
     height: 100%;
     overflow-y: auto;
@@ -45,7 +48,15 @@ const Drawer = styled(MuiDrawer)`
     padding: 24px 0;
     box-sizing: border-box;
     transition: all .25s ease;
-
+    // this group btns will awake
+    &:hover {
+      svg {
+        color: #9e9e9e; // 500
+      }
+      span {
+        color: #616161; // 700
+      }
+    }
   }
 `;
 
@@ -53,7 +64,7 @@ export default (props) => {
   const { isOpen } = props;
   
   return (
-    <Drawer variant="permanent" open={isOpen} >
+    <Drawer variant="permanent" open={isOpen} classes={{paper: 'left-paper'}} >
       {
         ListsArr.map((arr, index) => {
           return (
@@ -66,6 +77,8 @@ export default (props) => {
                     key={item.url}
                     url={item.url}
                     open={isOpen}
+                    type={item.type}
+                    num={item.num}
                     title={item.title}
                     icon={item.icon}>
                   </LeftItem>)
