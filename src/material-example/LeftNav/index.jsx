@@ -32,6 +32,7 @@ const Drawer = styled(MuiDrawer)`
     display:flex;
     width: ${props => props.open ? MaxWidth : MinWidth}px;
     height: 100%;
+    transition: all .25s ease;
   }
   
   & > div {
@@ -43,6 +44,8 @@ const Drawer = styled(MuiDrawer)`
     justify-content: space-between;
     padding: 24px 0;
     box-sizing: border-box;
+    transition: all .25s ease;
+
   }
 `;
 

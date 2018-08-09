@@ -10,12 +10,12 @@ const Umi = styled(UmiBase)`
   left: 40px;
   bottom: 25px;
   opacity: ${props => props.open ? 0 : 1};
-  transition: opacity .2s ease;
+  transition: opacity .35s ease;
 `;
 
 const ListItem = styled(MuiListItem)`
   && {
-    padding: 0;
+    padding: 0 20px;
     height: 48px;
   }
   &&:hover {
@@ -50,11 +50,11 @@ const ListItemText = styled(MuiListItemText)`
 
 const ListLink = styled(NavLink)`
   display:flex;
-  width: 100%;
-  height: 100%;
-  padding: 0 20px;
+  //width: 100%;
+  //height: 100%;
+  //padding: 0 20px;
   outline: none;
-  align-items:center;
+  //align-items:center;
   &:focus {
     svg, span {
       color: #9E9E9E;
@@ -76,17 +76,19 @@ export default withRouter((props) => {
   const bgColor = props.location.pathname.indexOf(url) > -1 ? '#EBF6FA' : '#F5F5F5';
   
   return (
-    <ListItem tabIndex='-1'
-              button={true}
-              disableGutters={true}
-              color={bgColor}
-              open={open}>
-      <ListLink to={`/material/${url}`}>
-        <Icon />
+    <ListLink to={`/material/${url}`}>
+      
+      <ListItem tabIndex='-1'
+                button={true}
+                disableGutters={true}
+                color={bgColor}
+                open={open}>
+        <Icon/>
         <Umi open={open}>22</Umi>
-        <ListItemText primary={`${title}`} open={open} />
+        <ListItemText primary={`${title}`} open={open}/>
         <UmiRight open={open}>22</UmiRight>
-      </ListLink>
-    </ListItem>
+      </ListItem>
+    </ListLink>
+  
   )
 });
