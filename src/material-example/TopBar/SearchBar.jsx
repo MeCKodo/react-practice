@@ -58,7 +58,7 @@ const suggestions = [
 const dot = (color = "#ccc") => ({
   alignItems: "center",
   display: "flex",
-  margin: "0 0 0 20px"
+  margin: "0 0 0 28px"
 });
 const DropdownIndicator = props => {
   return (
@@ -71,16 +71,19 @@ const IndicatorSeparator = () => {
 const Indicators = styled.div`
   position: absolute;
   top: 8px;
-  left: 2px;
+  left: 0px;
   color: #9e9e9e; // 500
   &:hover {
     color: transparent;
   }
 `;
+const IconSearch = styled(Search)`
+  padding: 0 12px;
+`;
 const IndicatorsContainer = () => {
   return (
     <Indicators>
-      <Search />
+      <IconSearch />
     </Indicators>
   );
 };
@@ -97,7 +100,7 @@ const IndicatorsContainer = () => {
 function Placeholder(props) {
   return (
     <Typography
-      style={{ position: "absolute", left: "30px" }}
+      style={{ position: "absolute", left: "36px" }}
       color="textSecondary"
     >
       {props.children}
@@ -106,26 +109,33 @@ function Placeholder(props) {
 }
 const colourStyles = {
   container: (styles, state) => {
-    return { ...styles, width: "100%" };
+    return { ...styles, width: "100%", margin: "0 20px" };
   },
-  control: (styles, state, s) => {
+  control: (styles, state) => {
     return {
       ...styles,
       backgroundColor: state.isFocused ? "#fff !important" : "#F5F5F5", // 100
-      border: state.isFocused ? "1px solid #ccc" : "none",
+      border: state.isFocused
+        ? "1px solid #ccc !important"
+        : "1px solid #F5F5F5",
       maxWidth: "640px",
+      height: "40px",
       boxShadow: "0",
       boxSizing: "border-box",
       ":hover": {
         backgroundColor: "#E0E0E0", // 300
-        borderColor: "#ccc"
+        border: "1px solid #E0E0E0"
       }
     };
   },
   input: (styles, state) => {
     return { ...styles, ...dot() };
   },
-  placeholder: styles => ({ ...styles }),
+  placeholder: styles => {
+    return {
+      ...styles
+    };
+  },
   menuList: (styles, state) => {
     return {
       ...styles,
@@ -134,7 +144,6 @@ const colourStyles = {
     };
   },
   option: (styles, state) => {
-    console.log(state);
     return {
       ...styles,
       color: state.isSelected
@@ -164,7 +173,6 @@ export default class extends Component {
     };
   }
   handleChange = value => {
-    console.log(value, "-0sdfsdf");
     this.setState({
       value: value
     });
@@ -174,7 +182,7 @@ export default class extends Component {
       <Select
         theme={{ color: "red" }}
         value={this.state.value}
-        placeholder="Search a country (start with a)"
+        placeholder="Search"
         label="Single select"
         onChange={this.handleChange}
         options={suggestions}

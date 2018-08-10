@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
@@ -37,45 +37,68 @@ const TopText = styled(Typography)`
   }
 `;
 
-const Div1 = styled.div`
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  flex-basis: 250px;
-`;
-
-const Div2 = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  flex-basis: 700px;
-`;
-
-const Div3 = styled.div`
+const TopLeft = styled.div`
   display: flex;
   align-items: center;
   flex-shrink: 0;
   flex-basis: 200px;
+`;
+
+const TopCenter = styled.div`
+  display: flex;
+  align-items: center;
+  flex-shrink: ${props => {
+    return props.screenSize > 900 ? 0 : 1;
+  }};
+  flex-basis: 700px;
+`;
+
+const TopRight = styled.div`
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
 `;
 
-export default props => {
-  return (
-    <TopBar>
-      <Wrapper>
-        <Div1>
-          <IconMenu onClick={props.handleMenuClick} open={props.isOpen} />
-          <TopText variant="headline">Ringcentral</TopText>
-        </Div1>
-        <Div2>
-          <ForwardBack />
-          <SearchBar />
-        </Div2>
-        <Div3>
-          <More />
-          <AvatarPresence />
-        </Div3>
-      </Wrapper>
-    </TopBar>
-  );
-};
+export default class TopBarWrapper extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      screenSize: null
+    };
+  }
+  onWindowResize = () => {
+    this.setState({
+      screenSize: document.body.clientWidth
+    });
+  };
+  componentDidMount() {
+    window.addEventListener("resize", this.onWindowResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onWindowResize);
+  }
+
+  render() {
+    return (
+      <TopBar>
+        <Wrapper>
+          <TopLeft>
+            <IconMenu
+              onClick={this.props.handleMenuClick}
+              open={this.props.isOpen}
+            />
+            <TopText variant="headline">Ringcentral</TopText>
+          </TopLeft>
+          <TopCenter screenSize={this.state.screenSize}>
+            <ForwardBack />
+            <SearchBar />
+          </TopCenter>
+          <TopRight>
+            <More />
+            <AvatarPresence />
+          </TopRight>
+        </Wrapper>
+      </TopBar>
+    );
+  }
+}
