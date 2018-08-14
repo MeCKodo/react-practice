@@ -29,29 +29,30 @@ const Wrapper = styled(Toolbar)`
     }
   }
 `;
-const TopText = styled(Typography)`
+const TopLogo = styled(Typography)`
   && {
     color: #0684bd;
     font-size: 26px;
     margin: 0 20px;
+    min-width: 196px;
+    /* padding: 0 32px 0 0; */
   }
 `;
 
 const TopLeft = styled.div`
   display: flex;
   align-items: center;
-  flex-shrink: 0;
-  flex-basis: 200px;
+  flex-basis: 992px;
+  flex-shrink: ${props => {
+    return props.screenSize > 1164 ? 0 : 1;
+  }};
 `;
 
-const TopCenter = styled.div`
-  display: flex;
-  align-items: center;
-  flex-shrink: ${props => {
-    return props.screenSize > 900 ? 0 : 1;
-  }};
-  flex-basis: 700px;
-`;
+// const TopCenter = styled.div`
+//   display: flex;
+//   align-items: center;
+//   flex-basis: 700px;
+// `;
 
 const TopRight = styled.div`
   display: flex;
@@ -82,17 +83,15 @@ export default class TopBarWrapper extends Component {
     return (
       <TopBar>
         <Wrapper>
-          <TopLeft>
+          <TopLeft screenSize={this.state.screenSize}>
             <IconMenu
               onClick={this.props.handleMenuClick}
               open={this.props.isOpen}
             />
-            <TopText variant="headline">Ringcentral</TopText>
-          </TopLeft>
-          <TopCenter screenSize={this.state.screenSize}>
+            <TopLogo variant="headline">Ringcentral</TopLogo>
             <ForwardBack />
             <SearchBar />
-          </TopCenter>
+          </TopLeft>
           <TopRight>
             <More />
             <AvatarPresence />
