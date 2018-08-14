@@ -12,9 +12,16 @@ const ListItem = styled(MuiListItem).attrs({ className : 'left-list-item' })`
     outline: none;
   }
   // In order to make sure use tab switch nav
-  &.left-item-focus {
+  &&.left-item-focus {
     .left-link {
        background: ${props => props.color};
+       
+    }
+    .left-icon {
+      color:#9e9e9e; // 500
+    }
+    span {
+      color:#616161; // 700
     }
   }
   &&:hover {
@@ -28,7 +35,6 @@ const ListItem = styled(MuiListItem).attrs({ className : 'left-list-item' })`
 
 const ListItemText = styled(MuiListItemText)`
   && {
-    font-size: 12px;
     color: #9e9e9e; // 500
     transform: translate3d(${props => props.open ? 12 : -10}px, 0, 0);
     opacity: ${props => props.open ? 1 : 0};
@@ -36,6 +42,7 @@ const ListItemText = styled(MuiListItemText)`
     padding: 0;
     span {
       color: #bfbfbf; // Aah
+      font-size: 14px;
       transition: color .2s ease;
     }
   }
@@ -76,8 +83,8 @@ const BaseBadge = styled(MuiBadge)`
         width: auto;
         height: auto;
         padding: 1px 5px;
-        border-radius: 12px;
-        transform: scale(.85);
+        border-radius: 16px;
+        transform: scale(.8);
       `};
       opacity: ${props => props.open ? 0 : 1};
       transition: opacity .2s ease;
@@ -105,8 +112,8 @@ const Badge = styled(BaseBadge)`
 const RightBadge = styled(BaseBadge)`
     span {
       ${props => props.num ? `
-        top: -10px;
-        right: -3px;
+        top: -9px;
+        right: -2px;
       ` : `
         right: 0px;
         top: -5px;
