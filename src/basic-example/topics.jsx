@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, { memo } from "react";
+import { Route, Link } from "react-router-dom";
 
 const Topic = memo(({ match }) => <h3>{match.params.topicId}</h3>);
 
@@ -21,7 +21,10 @@ const Topics = memo(({ match }) => {
         </li>
       </ul>
 
-      <Route path={`${match.path}/:topicId`} component={Topic} />
+      <Route
+        path={`${match.path}/:topicId`}
+        render={props => <Topic {...props} />}
+      />
       <Route
         exact
         path={match.path}

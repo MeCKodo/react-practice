@@ -14,15 +14,11 @@ const Container = styled.div`
 
 const BasicExample = lazy(() => import("./basic-example"));
 const MaterialExample = lazy(() => import("./material-example"));
+const HooksExample = lazy(() => import("./hooks-example"));
 
-const BasicLink = () => (
-  <Link to={"/basic"}>
-    <p>Basic</p>
-  </Link>
-);
-const MaterialLink = () => (
-  <Link to={"/material"}>
-    <p>Material</p>
+const createLink = (to, text) => (
+  <Link to={to}>
+    <p>{text}</p>
   </Link>
 );
 
@@ -36,13 +32,15 @@ ReactDOM.render(
             path="/material"
             render={props => <MaterialExample {...props} />}
           />
+          <Route path="/hooks" render={props => <HooksExample {...props} />} />
           <Route
             path="/"
             render={() => (
               <React.Fragment>
                 <h2>看什么看，写点demo不行吗</h2>
-                <BasicLink />
-                <MaterialLink />
+                {createLink("/basic", "basic")}
+                {createLink("/material", "Material")}
+                {createLink("/hooks", "hooks")}
               </React.Fragment>
             )}
           />
