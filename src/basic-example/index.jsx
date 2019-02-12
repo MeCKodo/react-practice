@@ -1,11 +1,11 @@
-import React, { lazy, Suspense } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import React, { lazy, Suspense } from "react";
+import { Route, Link, Switch } from "react-router-dom";
 
-const Home = lazy(() => import('./home'));
+const Home = lazy(() => import("./home"));
 
 const About = () => <h2>About</h2>;
 
-const Topics = lazy(() => import('./topics'));
+const Topics = lazy(() => import("./topics"));
 
 const BasicExample = ({ match }) => {
   console.log(match);
@@ -26,9 +26,16 @@ const BasicExample = ({ match }) => {
       <hr />
       <Suspense fallback={<div>loading.....</div>}>
         <Switch>
-          <Route exact path={`${match.path}/`} component={Home} />
+          <Route
+            exact
+            path={`${match.path}/`}
+            render={props => <Home {...props} />}
+          />
           <Route path={`${match.path}/about`} component={About} />
-          <Route path={`${match.path}/topics`} component={Topics} />
+          <Route
+            path={`${match.path}/topics`}
+            render={props => <Topics {...props} />}
+          />
         </Switch>
       </Suspense>
     </div>
