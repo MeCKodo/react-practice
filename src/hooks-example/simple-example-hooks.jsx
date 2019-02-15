@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
@@ -16,4 +16,15 @@ function Example() {
   );
 }
 
-export default Example;
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        test class render hooks component
+        <Example />
+      </div>
+    );
+  }
+}
+
+export default App;
