@@ -1,11 +1,11 @@
-import React, { lazy, Suspense } from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
 
-const Home = lazy(() => import("./home"));
+const Home = lazy(() => import('./home'));
 
 const About = () => <h2>About</h2>;
 
-const Topics = lazy(() => import("./topics"));
+const Topics = lazy(() => import('./topics'));
 
 const BasicExample = ({ match }) => {
   console.log(match);
