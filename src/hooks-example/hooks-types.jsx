@@ -37,7 +37,7 @@ function HookWithObject() {
   );
 }
 
-const Wrapper = React.memo(() => {
+const Wrapper = () => {
   return (
     <div>
       <HookWithString />
@@ -45,6 +45,6 @@ const Wrapper = React.memo(() => {
       <HookWithObject />
     </div>
   );
-});
+};
 
 export default Wrapper;
