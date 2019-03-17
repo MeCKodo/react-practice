@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import './index.css';
+
+import logo from './logo.svg';
 // import BasicExample from './basic-example';
 // import MaterialExample from './material-example';
 document.addEventListener('touchstart', function() {});
@@ -16,7 +18,7 @@ const BasicExample = lazy(() => import('./basic-example'));
 const MaterialExample = lazy(() => import('./material-example'));
 const HooksExample = lazy(() => import('./hooks-example'));
 
-const createLink = (to: string, text: string) => (
+const createLink = (to: strig, text: string) => (
   <Link to={to}>
     <p>{text}</p>
   </Link>
