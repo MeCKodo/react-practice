@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import React, { Suspense } from "react";
+import { Route, Link, Switch } from "react-router-dom";
 
-import SimpleExampleHooks from './simple-example-hooks';
-import HooksTypes from './hooks-types';
+import SimpleExampleHooks from "./simple-example-hooks";
+import HooksTypes from "./hooks-types";
 
 const createLink = (match, link, text) => (
   <li>

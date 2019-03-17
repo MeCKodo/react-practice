@@ -1,22 +1,22 @@
-import React, { Suspense, lazy } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import styled from "styled-components";
-import "./index.css";
+import React, { Suspense, lazy } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
+import './index.css';
 // import BasicExample from './basic-example';
 // import MaterialExample from './material-example';
-document.addEventListener("touchstart", function() {});
+document.addEventListener('touchstart', function() {});
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
 `;
 
-const BasicExample = lazy(() => import("./basic-example"));
-const MaterialExample = lazy(() => import("./material-example"));
-const HooksExample = lazy(() => import("./hooks-example"));
+const BasicExample = lazy(() => import('./basic-example'));
+const MaterialExample = lazy(() => import('./material-example'));
+const HooksExample = lazy(() => import('./hooks-example'));
 
-const createLink = (to, text) => (
+const createLink = (to: string, text: string) => (
   <Link to={to}>
     <p>{text}</p>
   </Link>
@@ -38,9 +38,9 @@ ReactDOM.render(
             render={() => (
               <React.Fragment>
                 <h2>看什么看，写点demo不行吗</h2>
-                {createLink("/basic", "basic")}
-                {createLink("/material", "Material")}
-                {createLink("/hooks", "hooks")}
+                {createLink('/basic', 'basic')}
+                {createLink('/material', 'Material')}
+                {createLink('/hooks', 'hooks')}
               </React.Fragment>
             )}
           />
@@ -48,5 +48,5 @@ ReactDOM.render(
       </Suspense>
     </Container>
   </BrowserRouter>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
